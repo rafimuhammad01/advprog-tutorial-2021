@@ -261,10 +261,10 @@ adalah memberitahukan identitas Anda kepada Git.
    mengidentifikasi diri Anda saat melakukan _commit_. Jika sudah pernah melakukan hal ini, maka langkah konfigurasi di
    bawah ini dapat dilewati.
 2. Eksekusikan perintah `git config user.name <Nama Anda>` dan `git config user.email <Email Anda>`. Sebagai contoh:
-   `git config user.name "Yotsuba Nakano"` dan `git config user.email "yotsuba.nakano@gmail.com"`.
+   `git config user.name "Annabelle Azalia"` dan `git config user.email "annabelle.azalia@gmail.com"`.
 3. Jika Anda ingin mengatur identitas Anda secara global agar tidak perlu mengatur _username_ dan _email_ setiap kali
    membuat repo baru, tambahkan _flag_ `--global` ketika mengeksekusi `git config`. Contoh:
-   `git config --global user.name "Yotsuba Nakano"` dan `git config --global user.email yotsuba.nakano@gmail.com`.
+   `git config --global user.name "Annabelle Von Azalia"` dan `git config --global user.email annabelle.azalia@gmail.com`.
 
 Kemudian Anda akan mempelajari kekuatan sesungguhnya dari Git, yaitu menyimpan mantra-mantra.
 
@@ -308,7 +308,7 @@ berisi mantra tersebut dengan melakukan hal berikut.
 3. Cari tombol _clone_ dan anda akan melihat akan ada dua jenis URL, SSH dan HTTPS. Salin yang HTTPS URL.
 4. Kemudian di dalam folder `the-art-of-git` eksekusikan perintah `git remote add origin <URL>` untuk menambahkan Gitlab
    repo Anda sebagai _remote repository_. Contoh:
-   `git remote add origin https://gitlab.com/yotsubanakano/the-art-of-git.git`. Sebagai catatan, `origin` merupakan
+   `git remote add origin https://gitlab.com/annabelleazalia/the-art-of-git.git`. Sebagai catatan, `origin` merupakan
    alias dari url repo Anda. Anda dapat mengecek semua _remote_ repo yang ada dengan perintah `git remote -v`.
 5. Untuk menyimpan _commit_ Anda ke Gitlab repo Anda, eksekusikan perintah `git push origin master`. Perintah
    `git push` akan 'mendorong' semua _commit_ di _local_ yang belum ada di _remote_ repo. `origin` menandakan bahkan
@@ -324,10 +324,10 @@ Selanjutnya Anda akan menggunakan repo ini untuk mempelajari kekuatan Git lebih 
 2. Cek _remote url_ dengan perintah `git remote -v`. Anda akan melihat url _remote_ `origin` merupakan Gitlab repo ini.
 3. Ubah nama `origin` menjadi `upstream` dengan perintah `git remote rename origin upstream`.
 4. Buatlah sebuah Gitlab repo baru dengan nama bebas dan pastikan _visibility_-nya **Public**. Misalkan nama repo-nya
-   adalah `AP 2020`.
+   adalah `AP 2021`.
 5. Selanjutnya salin URL HTTPS repo tersebut seperti hal yang Anda lakukan sebelumnya dan tambahkan _remote_ origin dengan
    perintah `git remote add origin <URL REPO>`. Contoh:
-   `git remote add origin https://gitlab.com/yotsubanakano/ap-2020.git`.
+   `git remote add origin https://gitlab.com/annabelleazalia/ap-2021.git`.
 6. Cek kembali _remote_ URL Anda dengan perintah `git remote -v`. Anda akan melihat akan ada dua _remote_ url yaitu `origin`
    dan `upstream`.
 7. Eksekusi perintah `git push origin master` untuk mendorong repo tersebut ke Gitlab repo Anda.
@@ -461,44 +461,44 @@ masih bekerja dengan baik.
    ```text
     commit bf02fdc2ffd8876c1d911bdc9527ad68adb0dd6d (HEAD -> master, origin/master)
     Merge: 6876365 30e94af
-    Author: Yotsuba Nakano <yotsuba.nakano@gmail.com>
-    Date:   Sun Jan 26 22:51:07 2020 +0700
+    Author: Annabelle Von Azalia <annabelle.azalia@gmail.com>
+    Date:   Sun Jan 26 22:51:07 2021 +0700
 
         fix conflict
 
     commit 68763658f43d8226cd46647ea681794fc4d7d393
-    Author: Yotsuba Nakano <yotsuba.nakano@gmail.com>
-    Date:   Sun Jan 26 22:31:07 2020 +0700
+    Author: Annabelle Von Azalia <annabelle.azalia@gmail.com>
+    Date:   Sun Jan 26 22:31:07 2021 +0700
 
         Change home to rumah
 
     commit 30e94afb32ea21e4bff78c93879e85b3831e75e2 (tutorial-0)
-    Author: Yotsuba Nakano <yotsuba.nakano@gmail.com>
-    Date:   Sun Jan 26 22:15:06 2020 +0700
+    Author: Annabelle Von Azalia <annabelle.azalia@gmail.com>
+    Date:   Sun Jan 26 22:15:06 2021 +0700
 
         Change home to house
 
     commit 7a52d6f3984b95c5c0e807580c260562eed37aae (upstream/master, upstream/HEAD)
     Author: adrika-novrialdi <adrika.novrialdi@gmail.com>
-    Date:   Sat Jan 25 13:10:39 2020 +0700
+    Date:   Sat Jan 25 13:10:39 2021 +0700
 
         Add tutorial 0 readme
 
     commit 832c65b3ec50ec599b90291fd2b838204e752e33
     Author: adrika-novrialdi <adrika.novrialdi@gmail.com>
-    Date:   Sat Jan 25 13:10:12 2020 +0700
+    Date:   Sat Jan 25 13:10:12 2021 +0700
 
         Create basic spring application for tutorial
 
     commit 48785ab2deab9b702ae227168bed90de4e71a547
     Author: adrika-novrialdi <adrika.novrialdi@gmail.com>
-    Date:   Fri Jan 24 18:54:40 2020 +0700
+    Date:   Fri Jan 24 18:54:40 2021 +0700
 
         Create Tutorial 0 Application
 
     commit 01c4ac473491c21540b71a6d69540e3002a82ce2
     Author: adrika-novrialdi <adrika.novrialdi@gmail.com>
-    Date:   Fri Jan 24 16:06:44 2020 +0700
+    Date:   Fri Jan 24 16:06:44 2021 +0700
 
         Init AdvProg Tutorial Repository
 
