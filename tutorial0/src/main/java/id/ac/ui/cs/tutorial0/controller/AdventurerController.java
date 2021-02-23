@@ -15,18 +15,7 @@ public class AdventurerController {
 
     @RequestMapping("/adventurer/countPower")
     private String showAdventurerPowerFromBirthYear(@RequestParam("birthYear")int birthYear, Model model) {
-        String powerInString = "";
-        int power = adventurerCalculatorService.countPowerPotensialFromBirthYear(birthYear);
-
-        if (power < 20000) {
-            powerInString += power + " C class";
-        } else if (power >= 20000 && power < 100000) {
-            powerInString += power + " B class";
-        } else {
-            powerInString += power + " A class";
-        }
-
-        model.addAttribute("power", powerInString);
+        model.addAttribute("power", adventurerCalculatorService.countPowerPotensialFromBirthYear(birthYear));
         return "calculator";
     }
 }
