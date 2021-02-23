@@ -1,0 +1,52 @@
+image: gradle:6.1.1-jdk8
+
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+
+stages:
+  - test
+
+# Tutorial 1 CI Jobs
+test:t1:
+  stage: test
+  script: gradle :tutorial-1:check
+  only:
+    - /.*tutorial[_-].*1$/
+  except:
+    - branches@csui-advprog-2019/lab
+
+# Tutorial 2 CI Jobs
+test:t2:
+  stage: test
+  script: gradle :tutorial-2:check
+  only:
+    - /.*tutorial[_-].*2$/
+  except:
+    - branches@csui-advprog-2019/lab
+
+# Tutorial 3 CI Jobs
+test:t3:
+  stage: test
+  script:
+    - gradle :tutorial-3:check
+    - gradle :tutorial-3:jacocoTestReport
+    - cat tutorial-3/build/reports/jacoco/test/html/index.html
+  only:
+    - /.*tutorial[_-].*3$/
+  except:
+    - branches@csui-advprog-2019/lab
+
+# Tutorial 4 CI Jobs
+test:t4:
+  stage: test
+  script:
+    - gradle :tutorial-4:check
+    - gradle :tutorial-4:jacocoTestReport
+    - cat tutorial-4/build/reports/jacoco/test/html/index.html
+  only:
+    - /.*tutorial[_-].*4$/
+  except:
+    - branches@csui-advprog-2019/lab
