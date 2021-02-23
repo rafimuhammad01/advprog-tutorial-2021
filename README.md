@@ -21,7 +21,7 @@ advprog-tutorial-2021
 5. Note the clone (HTTPS) URL
 6. Back to your local tutorial work repository, add new remote named upstream
 that points to this repository:
-git remote add upstream https://gitlab.com/csui-advprog-2019/advprog-tutorial-2020.git
+git remote add upstream https://gitlab.com/csui-advprog-2019/advprog-tutorial-2021.git
 7. Pull initial problem sets from upstream: git pull upstream master
 
 > If your Git produced an error about 'unrelated histories', try adding
@@ -71,7 +71,7 @@ where `<PATH>` is a path to a directory in your local machine.
 4. Go to the directory where the cloned repository is located in your
 local machine.
 5. Add new remote called **upstream** that points to this (problem set)
-repository. Use Git command: `git remote add upstream https://gitlab.com/csui-advprog-2019/adv-tutorial-2020.git`
+repository. Use Git command: `git remote add upstream https://gitlab.com/csui-advprog-2019/adv-tutorial-2021.git`
 6. Pull initial problem sets from `upstream` to your local's `master`:
 `git pull upstream master`
 7. Push initial commits in your local's `master` to your online GitLab
@@ -143,7 +143,7 @@ team (TAs & lecturers) that allowed to approve/reject a MR made by student.**
 
 # License
 
-Copyright (c) 2020, Faculty of Computer Science Universitas Indonesia
+Copyright (c) 2021, Faculty of Computer Science Universitas Indonesia
 
 Permission to copy, modify, and share the works in this project are governed
 under two licenses: [BSD 3-Clause][1] and [Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)][2]
