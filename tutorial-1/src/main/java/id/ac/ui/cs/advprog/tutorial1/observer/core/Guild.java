@@ -26,5 +26,8 @@ public class Guild {
 
     private void broadcast() {
         //ToDo: Complete Me
+        for (Adventurer i : adventurers) {
+            i.update();
+        }
     }
 }

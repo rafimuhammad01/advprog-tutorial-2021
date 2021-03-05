@@ -1,5 +1,6 @@
 package id.ac.ui.cs.advprog.tutorial1.strategy.controller;
 
+import id.ac.ui.cs.advprog.tutorial1.strategy.core.Adventurer;
 import id.ac.ui.cs.advprog.tutorial1.strategy.core.AttackBehavior;
 import id.ac.ui.cs.advprog.tutorial1.strategy.core.DefenseBehavior;
 import id.ac.ui.cs.advprog.tutorial1.strategy.service.AdventurerService;
@@ -21,12 +22,16 @@ public class StrategyController {
     public String strategyHome(Model model) {
         Iterable<AttackBehavior> attackBehaviors = adventurerService.getAttackBehaviors();
         Iterable<DefenseBehavior> defenseBehaviors = adventurerService.getDefenseBehaviors();
+        Iterable<Adventurer> AdventurerList = adventurerService.findAll();
+        model.addAttribute("adventurers", AdventurerList );
+        model.addAttribute("attackBehaviors", attackBehaviors);
+        model.addAttribute("defenseBehaviors", defenseBehaviors);
         //ToDo: Complete me
         return "strategy/home";
     }
 
     //ToDo: Fill with a correct method
-    @RequestMapping(path = "/change-strategy")
+    @RequestMapping(path = "/change-strategy", method = RequestMethod.POST)
     public String changeAttack(
             @RequestParam(value = "alias") String alias,
             @RequestParam(value = "attackType") String attackType,
@@ -34,7 +39,7 @@ public class StrategyController {
 
         adventurerService.changeStrategy(alias, attackType, defenseType);
         //ToDo: This should redirect to home URL
-        return "";
+        return "redirect:/adventurer/all";
     }
 
 }

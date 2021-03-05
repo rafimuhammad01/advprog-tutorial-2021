@@ -24,8 +24,8 @@ public class ObserverController {
     @RequestMapping(value = "/add-quest", method = RequestMethod.POST)
     public String addQuest(@ModelAttribute("quest") Quest quest) {
         guildService.addQuest(quest);
-        // ToDo redirect this to adventurer-list URl
-        return "";
+        // redirect this to adventurer-list URl
+        return "redirect:/adventurer-list" ;
     }
 
     @RequestMapping(value = "/adventurer-list", method = RequestMethod.GET)
