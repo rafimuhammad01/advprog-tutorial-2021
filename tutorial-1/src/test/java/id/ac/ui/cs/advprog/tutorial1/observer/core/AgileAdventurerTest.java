@@ -58,7 +58,6 @@ public class AgileAdventurerTest {
         escortQuest.setTitle("Dummy");
         escortQuest.setType("E");
         when(guild.getQuestType()).thenReturn(escortQuest.getType());
-
         agileAdventurer.update();
         List<Quest> agileQuestList = agileAdventurer.getQuests();
 

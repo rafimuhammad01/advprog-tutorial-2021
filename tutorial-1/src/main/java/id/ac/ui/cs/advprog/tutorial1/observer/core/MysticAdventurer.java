@@ -11,5 +11,8 @@ public class MysticAdventurer extends Adventurer {
     //ToDo: Complete Me
     public void update() {
 
+        if (this.guild.getQuestType().equals("D") || this.guild.getQuestType().equals("E")) {
+            getQuests().add(this.guild.getQuest());
+        }
     }
 }

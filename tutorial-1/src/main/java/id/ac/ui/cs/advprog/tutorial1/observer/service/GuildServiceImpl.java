@@ -22,12 +22,15 @@ public class GuildServiceImpl implements GuildService {
         this.agileAdventurer = new AgileAdventurer(this.guild);
         this.knightAdventurer = new KnightAdventurer(this.guild);
         this.mysticAdventurer = new MysticAdventurer(this.guild);
+        guild.add(agileAdventurer);
+        guild.add(knightAdventurer);
+        guild.add(mysticAdventurer);
     }
 
     //ToDo: Complete Me
     public void addQuest(Quest quest){
-        questRepository.save(quest);
         guild.addQuest(quest);
+        questRepository.save(quest);
         return;
     }
 

@@ -9,7 +9,9 @@ public class KnightAdventurer extends Adventurer {
     }
 
     //ToDo: Complete Me
-    public void update() {
+    public void update(){
+        getQuests().add(this.guild.getQuest());
+
 
     }
 }
