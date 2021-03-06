@@ -29,8 +29,9 @@ public class GuildServiceImpl implements GuildService {
 
     //ToDo: Complete Me
     public void addQuest(Quest quest){
-        guild.addQuest(quest);
-        questRepository.save(quest);
+        Quest validateQuest = questRepository.save(quest);
+        if (validateQuest != null)
+        guild.addQuest(validateQuest);
         return;
     }
 
