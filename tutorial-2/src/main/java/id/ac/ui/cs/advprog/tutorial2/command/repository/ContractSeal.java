@@ -20,10 +20,15 @@ public class ContractSeal {
 
     public void castSpell(String spellName) {
         // TODO: Complete Me
+        spells.get(spellName).cast();
     }
 
     public void undoSpell() {
         // TODO: Complete Me
+        for(Spell i : getSpells()) {
+            i.undo();
+        }
+
     }
 
     public Collection<Spell> getSpells() { return spells.values(); }

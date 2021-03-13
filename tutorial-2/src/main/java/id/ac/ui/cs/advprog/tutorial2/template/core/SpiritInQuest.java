@@ -1,6 +1,7 @@
 package id.ac.ui.cs.advprog.tutorial2.template.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class SpiritInQuest {
@@ -8,6 +9,7 @@ public abstract class SpiritInQuest {
     public List attackPattern() {
         List list = new ArrayList();
         // TODO: Complete Me
+        list.addAll(Arrays.asList(this.summon(), this.getReady(), this.buff(), this.attackWithBuster(), this.attackWithQuick(), this.attackWithArts(), this.attackWithSpecialSkill()));
         return list;
     }
 
