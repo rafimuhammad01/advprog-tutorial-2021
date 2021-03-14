@@ -20,7 +20,7 @@ public class ChainSpell implements Spell {
     @Override
     public void undo() {
         for (int i = arrSpell.size() - 1; i >= 0; i-- ) {
-            arrSpell.get(i).cast();
+            arrSpell.get(i).undo();
         }
     }
 
