@@ -7,6 +7,7 @@ import java.util.*;
 
 @Repository
 public class ContractSeal {
+    private Spell latestSpell;
 
     private Map<String, Spell> spells;
 
@@ -18,16 +19,19 @@ public class ContractSeal {
         spells.put(spell.spellName(), spell);
     }
 
+    public void addLatestSpell(Spell latestSpell) {
+        this.latestSpell = latestSpell;
+    }
+
     public void castSpell(String spellName) {
         // TODO: Complete Me
         spells.get(spellName).cast();
+        addLatestSpell(spells.get(spellName));
     }
 
     public void undoSpell() {
         // TODO: Complete Me
-        for(Spell i : getSpells()) {
-            i.undo();
-        }
+        latestSpell.undo();
 
     }
 
