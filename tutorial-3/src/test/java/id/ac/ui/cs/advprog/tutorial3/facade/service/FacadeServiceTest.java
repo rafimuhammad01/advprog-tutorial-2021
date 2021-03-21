@@ -33,9 +33,12 @@ public class FacadeServiceTest {
 
     @Test
     public void testFacadeServiceEncodeCorrectlyImplemented() {
-        // TODO: ganti assertion output untuk menguji hasil encode
-        String result = facadeService.encode("Safira and I went to a blacksmith to forge our sword.");
-        assertNotEquals("Implement me", result);
+        // TODO: ganti assertion output untuk menguji hasil
+        facadeService.setRequestType("encode");
+        facadeService.setRequestValue("Safira and I went to a blacksmith to forge our sword");
+
+        String result = facadeService.encode("Safira and I went to a blacksmith to forge our sword");
+        assertEquals("!|G*^ccD^#m:M%deeq-!]}y!!|BiZAvS@!%N__u<&yZ!DF@?F)_w", result);
     }
 
     @Test
@@ -48,8 +51,11 @@ public class FacadeServiceTest {
     @Test
     public void testFacadeServiceDecodeCorrectlyImplemented() {
         // TODO: ganti input dan assertion output untuk menguji hasil decode
-        String result = facadeService.decode("_M#!;JJB!Gx{X)b==?<D(&qDD_denCKVFD)Z%%w|@qnDBNF;NS%/D");
-        assertNotEquals("Implement me", result);
+        facadeService.setRequestType("decode");
+        facadeService.setRequestValue("!|G*^ccD^#m:M%deeq-!]}y!!|BiZAvS@!%N__u<&yZ!DF@?F)_w");
+
+        String result = facadeService.decode("!|G*^ccD^#m:M%deeq-!]}y!!|BiZAvS@!%N__u<&yZ!DF@?F)_w");
+        assertEquals("Safira and I went to a blacksmith to forge our sword", result);
     }
 
     @Test

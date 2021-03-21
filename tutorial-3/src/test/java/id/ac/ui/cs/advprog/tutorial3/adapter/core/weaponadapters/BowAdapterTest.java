@@ -1,5 +1,8 @@
 package id.ac.ui.cs.advprog.tutorial3.adapter.core.weaponadapters;
 
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.bow.Bow;
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.bow.IonicBow;
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.weapon.SeawardPride;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 // TODO: add tests
 public class BowAdapterTest {
@@ -95,4 +99,37 @@ public class BowAdapterTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testNormalAttack() throws Exception {
+        Bow bow = mock(Bow.class);
+        BowAdapter bowAdapter = new BowAdapter(bow);
+
+        assertEquals(bow.getHolderName()  + " with " + bow.getName() +" (normal attack): " + bow.shootArrow(false), bowAdapter.normalAttack());
+
+    }
+
+    @Test
+    public void testChargedAttack() throws Exception {
+        Bow bow = mock(Bow.class);
+        BowAdapter bowAdapter = new BowAdapter(bow);
+
+        assertEquals(bow.getHolderName()  + " with " + bow.getName() + " (charged attack): Entering aim shot mode", bowAdapter.chargedAttack());
+
+    }
+    @Test
+    public void testGetName() throws Exception{
+        Bow bow = new IonicBow("dummy");
+        BowAdapter bowAdapter = new BowAdapter(bow);
+
+        assertEquals("Ionic Bow",bowAdapter.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        Bow bow = new IonicBow("dummy");
+        BowAdapter bowAdapter = new BowAdapter(bow);
+
+        assertEquals("dummy",bowAdapter.getHolderName());
+    }
 }

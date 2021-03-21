@@ -6,7 +6,7 @@ import id.ac.ui.cs.advprog.tutorial3.facade.core.codex.Codex;
 /**
  * Kelas ini melakukan cipher transposisi rotasi
 */
-public class AbyssalTransformation {
+public class AbyssalTransformation implements Transformation {
     private int key;
 
     public AbyssalTransformation(int key){
@@ -32,8 +32,8 @@ public class AbyssalTransformation {
         int n = text.length();
         char[] res = new char[n];
         for(int i = 0; i < n; i++){
-            int newIdx = i + key * selector;
-            newIdx = newIdx < 0 ? n + newIdx : newIdx % n;
+            int newIdx = (i + key * selector) % n;
+            newIdx = newIdx < 0 ? n + newIdx : newIdx;
             res[i] = text.charAt(newIdx);
         }
 

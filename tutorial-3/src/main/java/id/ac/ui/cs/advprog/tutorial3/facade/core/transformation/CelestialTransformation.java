@@ -5,7 +5,7 @@ import id.ac.ui.cs.advprog.tutorial3.facade.core.codex.Codex;
 /**
  * Kelas ini mengimplementasikan sistem kriptografi Vigenere
 */
-public class CelestialTransformation {
+public class CelestialTransformation implements Transformation {
     private int[] key;
 
     public CelestialTransformation(int[] key){

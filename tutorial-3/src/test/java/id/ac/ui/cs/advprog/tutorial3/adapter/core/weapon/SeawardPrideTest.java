@@ -80,4 +80,34 @@ public class SeawardPrideTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testGetName() throws Exception{
+        SeawardPride seawardPride = new SeawardPride("dummy");
+
+        assertEquals("Seaward Pride",seawardPride.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        SeawardPride seawardPride = new SeawardPride("dummy");
+
+        assertEquals("dummy",seawardPride.getHolderName());
+    }
+
+    @Test
+    public void testNormalAttack() throws Exception{
+        SeawardPride seawardPride = new SeawardPride("dummy");
+        String res = seawardPride.normalAttack();
+
+        assertEquals(seawardPride.getName() + " normal attack",res);
+    }
+
+    @Test
+    public void testChargedAttack() throws Exception{
+        SeawardPride seawardPride = new SeawardPride("dummy");
+        String res = seawardPride.chargedAttack();
+
+        assertEquals(seawardPride.getName() + " charged attack", res);
+    }
 }

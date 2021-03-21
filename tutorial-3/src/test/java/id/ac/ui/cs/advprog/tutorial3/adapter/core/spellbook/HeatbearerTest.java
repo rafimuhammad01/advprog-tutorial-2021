@@ -1,5 +1,6 @@
 package id.ac.ui.cs.advprog.tutorial3.adapter.core.spellbook;
 
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.bow.IonicBow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -80,4 +81,34 @@ public class HeatbearerTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testGetName() throws Exception{
+        Heatbearer heatbearer = new Heatbearer("dummy");
+
+        assertEquals("Heat Bearer",heatbearer.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        Heatbearer heatbearer = new Heatbearer("dummy");
+
+        assertEquals("dummy",heatbearer.getHolderName());
+    }
+
+    @Test
+    public void testSmallSpell() throws Exception{
+        Heatbearer heatbearer = new Heatbearer("dummy");
+        String res = heatbearer.smallSpell();
+
+        assertEquals("Enemy scarred",res);
+    }
+
+    @Test
+    public void testLargeSpell() throws Exception{
+        Heatbearer heatbearer = new Heatbearer("dummy");
+        String res = heatbearer.largeSpell();
+
+        assertEquals("EXPUULOOOOSHHHIOONNNN!", res);
+    }
 }

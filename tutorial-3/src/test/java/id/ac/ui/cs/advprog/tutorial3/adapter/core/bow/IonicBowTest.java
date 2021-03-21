@@ -11,10 +11,13 @@ import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 // TODO: add tests
 public class IonicBowTest {
     private Class<?> ionicBowClass;
+
+
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -72,4 +75,35 @@ public class IonicBowTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+
+    @Test
+    public void testGetName() throws Exception{
+        IonicBow ionicBow = new IonicBow("dummy");
+
+        assertEquals("Ionic Bow",ionicBow.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        IonicBow ionicBow = new IonicBow("dummy");
+
+        assertEquals("dummy",ionicBow.getHolderName());
+    }
+
+    @Test
+    public void testShotArrowIfisAimShotisFalse() throws Exception{
+        IonicBow ionicBow = new IonicBow("dummy");
+        String res = ionicBow.shootArrow(false);
+
+        assertEquals("Separated one atom from the enemy",res);
+    }
+
+    @Test
+    public void testShotArrowIfisAimShotisTrue() throws Exception{
+        IonicBow ionicBow = new IonicBow("dummy");
+        String res = ionicBow.shootArrow(true);
+
+        assertEquals("Arrow reacted with the enemy's protons", res);
+    }
 }

@@ -1,6 +1,20 @@
 package id.ac.ui.cs.advprog.tutorial3.facade.service;
 
+import id.ac.ui.cs.advprog.tutorial3.facade.core.codex.AlphaCodex;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.codex.Codex;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.codex.RunicCodex;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.misc.CodexTranslator;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.misc.Spell;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.AbyssalTransformation;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.CaesarCipherTransformation;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.CelestialTransformation;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.Transformation;
 import org.springframework.stereotype.Service;
+
+import javax.xml.crypto.dsig.Transform;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /*
  * Asumsikan kelas ini sebagai kelas Client
@@ -10,6 +24,19 @@ public class FacadeServiceImpl implements FacadeService {
 
     private boolean recentRequestType;
     private String recentRequestValue;
+
+    private Codex alphaCodex = AlphaCodex.getInstance();
+    private Codex runicCodex = RunicCodex.getInstance();
+
+    private CodexTranslator codexTranslator = new CodexTranslator();
+
+    private List<Transformation> listOfTransformation = new ArrayList<>(Arrays.asList(
+            new CelestialTransformation(),
+            new AbyssalTransformation(),
+            new CaesarCipherTransformation()
+
+    ));
+
 
     /*
      * Flow encoding: 
@@ -53,7 +80,20 @@ public class FacadeServiceImpl implements FacadeService {
     */
     @Override
     public String encode(String text){
-        return "Implement me";
+        if (recentRequestType) {
+            Spell spell = new Spell(getRequestValue(), alphaCodex);
+
+
+            for (Transformation i : listOfTransformation) {
+                spell = i.encode(spell);
+            }
+
+            spell = codexTranslator.translate(spell, runicCodex);
+
+            return spell.getText();
+
+        }
+        return "Implement me (encode)";
     }
 
     /*
@@ -96,6 +136,20 @@ public class FacadeServiceImpl implements FacadeService {
     */
     @Override
     public String decode(String code){
+        if (!recentRequestType) {
+            Spell spell = new Spell(getRequestValue(), runicCodex);
+
+            spell = codexTranslator.translate(spell, alphaCodex);
+
+            for (int i = listOfTransformation.size() - 1; i >= 0; i--) {
+                spell = listOfTransformation.get(i).decode(spell);
+            }
+
+            return spell.getText();
+
+
+        }
+
         return "Implement me";
     }
 

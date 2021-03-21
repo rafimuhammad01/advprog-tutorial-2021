@@ -1,5 +1,9 @@
 package id.ac.ui.cs.advprog.tutorial3.adapter.core.weaponadapters;
 
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.bow.Bow;
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.bow.IonicBow;
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.spellbook.Heatbearer;
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.spellbook.Spellbook;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 // TODO: add tests
 public class SpellbookAdapterTest {
@@ -95,4 +100,37 @@ public class SpellbookAdapterTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testNormalAttack() throws Exception {
+        Spellbook spellbook = mock(Spellbook.class);
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(spellbook);
+
+        assertEquals(spellbook.getHolderName()  + " with " + spellbook.getName() +" (normal attack): " + spellbook.smallSpell(), spellbookAdapter.normalAttack());
+
+    }
+
+    @Test
+    public void testChargedAttack() throws Exception {
+        Spellbook spellbook = mock(Spellbook.class);
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(spellbook);
+
+        assertEquals(spellbook.getHolderName()  + " with " + spellbook.getName() +" (charged attack): " + spellbook.largeSpell(), spellbookAdapter.chargedAttack());
+
+    }
+    @Test
+    public void testGetName() throws Exception{
+        Spellbook spellbook = new Heatbearer("dummy");
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(spellbook);
+
+        assertEquals("Heat Bearer",spellbookAdapter.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        Spellbook spellbook = new Heatbearer("dummy");
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(spellbook);
+
+        assertEquals("dummy",spellbookAdapter.getHolderName());
+    }
 }

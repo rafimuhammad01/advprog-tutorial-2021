@@ -80,4 +80,34 @@ public class FullMoonPikeTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testGetName() throws Exception{
+        FullMoonPike fullMoonPike = new FullMoonPike("dummy");
+
+        assertEquals("Full Moon Pike", fullMoonPike.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        FullMoonPike fullMoonPike = new FullMoonPike("dummy");
+
+        assertEquals("dummy",fullMoonPike.getHolderName());
+    }
+
+    @Test
+    public void testNormalAttack() throws Exception{
+        FullMoonPike fullMoonPike = new FullMoonPike("dummy");
+        String res = fullMoonPike.normalAttack();
+
+        assertEquals(fullMoonPike.getName() + " normal attack",res);
+    }
+
+    @Test
+    public void testChargedAttack() throws Exception{
+        FullMoonPike fullMoonPike = new FullMoonPike("dummy");
+        String res = fullMoonPike.chargedAttack();
+
+        assertEquals(fullMoonPike.getName() + " charged attack", res);
+    }
 }

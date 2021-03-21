@@ -1,5 +1,6 @@
 package id.ac.ui.cs.advprog.tutorial3.adapter.core.weapon;
 
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.spellbook.TheWindjedi;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -80,4 +81,34 @@ public class StaffOfHoumoTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testGetName() throws Exception{
+        StaffOfHoumo staffOfHoumo = new StaffOfHoumo("dummy");
+
+        assertEquals("Staff of Houmo",staffOfHoumo.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        StaffOfHoumo staffOfHoumo = new StaffOfHoumo("dummy");
+
+        assertEquals("dummy",staffOfHoumo.getHolderName());
+    }
+
+    @Test
+    public void testNormalAttack() throws Exception{
+        StaffOfHoumo staffOfHoumo = new StaffOfHoumo("dummy");
+        String res = staffOfHoumo.normalAttack();
+
+        assertEquals(staffOfHoumo.getName() + " normal attack",res);
+    }
+
+    @Test
+    public void testChargedAttack() throws Exception{
+        StaffOfHoumo staffOfHoumo = new StaffOfHoumo("dummy");
+        String res = staffOfHoumo.chargedAttack();
+
+        assertEquals(staffOfHoumo.getName() + " charged attack", res);
+    }
 }

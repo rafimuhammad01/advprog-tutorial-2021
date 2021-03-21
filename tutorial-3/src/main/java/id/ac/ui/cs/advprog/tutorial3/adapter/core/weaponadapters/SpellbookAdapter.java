@@ -7,29 +7,36 @@ import id.ac.ui.cs.advprog.tutorial3.adapter.core.weapon.Weapon;
 public class SpellbookAdapter implements Weapon {
 
     private Spellbook spellbook;
+    boolean isLastSpellChargedAttack;
 
     public SpellbookAdapter(Spellbook spellbook) {
-
+        this.spellbook = spellbook;
     }
+
 
     @Override
     public String normalAttack() {
-        return null;
+        isLastSpellChargedAttack = false;
+        return spellbook.getHolderName()  + " with " + spellbook.getName() +" (normal attack): " + spellbook.smallSpell();
     }
 
     @Override
     public String chargedAttack() {
-        return null;
+        if (isLastSpellChargedAttack) {
+            return spellbook.getHolderName()  + " with " + spellbook.getName() +" (charged attack): " + "Magic power not enough for large spell";
+        }
+        isLastSpellChargedAttack = true;
+        return spellbook.getHolderName()  + " with " + spellbook.getName() +" (charged attack): " + spellbook.largeSpell();
     }
 
     @Override
     public String getName() {
-        return null;
+        return spellbook.getName();
     }
 
     @Override
     public String getHolderName() {
-        return null;
+        return spellbook.getHolderName();
     }
 
 }

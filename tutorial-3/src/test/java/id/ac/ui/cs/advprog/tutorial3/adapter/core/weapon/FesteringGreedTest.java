@@ -79,4 +79,34 @@ public class FesteringGreedTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testGetName() throws Exception{
+        FesteringGreed festeringGreed = new FesteringGreed("dummy");
+
+        assertEquals("Festering Greed", festeringGreed.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        FesteringGreed festeringGreed = new FesteringGreed("dummy");
+
+        assertEquals("dummy",festeringGreed.getHolderName());
+    }
+
+    @Test
+    public void testNormalAttack() throws Exception{
+        FesteringGreed festeringGreed = new FesteringGreed("dummy");
+        String res = festeringGreed.normalAttack();
+
+        assertEquals(festeringGreed.getName() + " normal attack",res);
+    }
+
+    @Test
+    public void testChargedAttack() throws Exception{
+        FesteringGreed festeringGreed = new FesteringGreed("dummy");
+        String res = festeringGreed.chargedAttack();
+
+        assertEquals(festeringGreed.getName() + " charged attack", res);
+    }
 }

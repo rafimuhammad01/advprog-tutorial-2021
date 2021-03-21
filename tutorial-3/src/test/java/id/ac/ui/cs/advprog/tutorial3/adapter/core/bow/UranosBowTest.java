@@ -71,4 +71,34 @@ public class UranosBowTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testGetName() throws Exception{
+        UranosBow uranosBow = new UranosBow("dummy");
+
+        assertEquals("Uranos Bow",uranosBow.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        UranosBow uranosBow = new UranosBow("dummy");
+
+        assertEquals("dummy",uranosBow.getHolderName());
+    }
+
+    @Test
+    public void testShotArrowIfisAimShotisFalse() throws Exception{
+        UranosBow uranosBow = new UranosBow("dummy");
+        String res = uranosBow.shootArrow(false);
+
+        assertEquals("headshot!",res);
+    }
+
+    @Test
+    public void testShotArrowIfisAimShotisTrue() throws Exception{
+        UranosBow uranosBow = new UranosBow("dummy");
+        String res = uranosBow.shootArrow(true);
+
+        assertEquals("Gaining charge... gaining speed... headshot!", res);
+    }
 }

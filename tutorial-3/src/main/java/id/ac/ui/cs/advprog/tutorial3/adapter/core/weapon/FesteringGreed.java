@@ -10,13 +10,13 @@ public class FesteringGreed implements Weapon {
     @Override
     public String normalAttack() {
         // TODO: complete me
-        return null;
+        return getName() + " normal attack";
     }
 
     @Override
     public String chargedAttack() {
         // TODO: complete me
-        return null;
+        return getName() + " charged attack";
     }
 
     @Override

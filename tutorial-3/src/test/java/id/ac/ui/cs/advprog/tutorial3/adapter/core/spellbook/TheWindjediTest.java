@@ -80,4 +80,34 @@ public class TheWindjediTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+
+    @Test
+    public void testGetName() throws Exception{
+        TheWindjedi theWindjedi = new TheWindjedi("dummy");
+
+        assertEquals("The Windjedi",theWindjedi.getName());
+    }
+
+    @Test
+    public void testGetHolderName() throws Exception{
+        TheWindjedi theWindjedi = new TheWindjedi("dummy");
+
+        assertEquals("dummy",theWindjedi.getHolderName());
+    }
+
+    @Test
+    public void testSmallSpell() throws Exception{
+        TheWindjedi theWindjedi = new TheWindjedi("dummy");
+        String res = theWindjedi.smallSpell();
+
+        assertEquals("Small musical attack launched",res);
+    }
+
+    @Test
+    public void testLargeSpell() throws Exception{
+        TheWindjedi theWindjedi = new TheWindjedi("dummy");
+        String res = theWindjedi.smallSpell();
+
+        assertEquals("Orchestra-class music attack launched", res);
+    }
 }
