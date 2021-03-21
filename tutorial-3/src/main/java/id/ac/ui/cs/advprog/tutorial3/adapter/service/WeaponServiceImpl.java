@@ -40,6 +40,7 @@ public class WeaponServiceImpl implements WeaponService {
 
 
 
+
     public Weapon findByAlias(String weaponName) {
         for (Weapon i : allItems) {
             if (i.getName().equals(weaponName)) {
@@ -78,21 +79,25 @@ public class WeaponServiceImpl implements WeaponService {
     public void attackWithWeapon(String weaponName, int attackType) {
         //Get Weapon
         Weapon weapon = findByAlias(weaponName);
-        /*
+
+        if (weapon == null) {
+            weapon = weaponRepository.findByAlias(weaponName);
+            weaponRepository.save(weapon);
+            allItems.add(weapon);
+        }
+
         if (weapon == null) {
             Bow bow = bowRepository.findByAlias(weaponName);
-            if (bow != null) weapon = new BowAdapter(bow);
-
+            bowRepository.save(bow);
+            allItems.add(new BowAdapter(bow));
         }
 
         if (weapon == null) {
             Spellbook spellbook = spellBookRepository.findByAlias(weaponName);
-            if (spellbook != null) weapon = new SpellbookAdapter(spellbook);
-
+            spellBookRepository.save(spellbook);
+            allItems.add(new SpellbookAdapter(spellbook));
         }
 
-
-         */
         //Attack with normal or charged
         if (attackType == 0) { //Attack type 0 == normalAttack
             logRepository.addLog(weapon.normalAttack());
@@ -108,3 +113,7 @@ public class WeaponServiceImpl implements WeaponService {
         return logRepository.findAll();
     }
 }
+
+
+
+

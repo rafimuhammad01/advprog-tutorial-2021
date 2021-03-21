@@ -104,9 +104,9 @@ public class TheWindjediTest {
     }
 
     @Test
-    public void testLargeSpell() throws Exception{
+    public void testLargeSpell() throws Exception {
         TheWindjedi theWindjedi = new TheWindjedi("dummy");
-        String res = theWindjedi.smallSpell();
+        String res = theWindjedi.largeSpell();
 
         assertEquals("Orchestra-class music attack launched", res);
     }
