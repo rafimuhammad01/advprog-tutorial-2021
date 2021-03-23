@@ -34,7 +34,7 @@ test:t3:
   stage: test
   script:
     - gradle :tutorial-3:check
-    - 'gradle test jacocoTestReport'
+    - 'gradle tutorial-3:check jacocoTestReport'
   artifacts:
     paths:
       - build/jacoco/jacoco.xml
@@ -57,8 +57,3 @@ coverage-jdk11:
   artifacts:
     reports:
       cobertura: build/cobertura.xml
-  only:
-    - /.*tutorial[_-].*3$/
-  except:
-    - branches@csui-advprog-2019/advprog-tutorial-2021
-
