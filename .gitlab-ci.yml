@@ -57,3 +57,7 @@ coverage-jdk11:
   artifacts:
     reports:
       cobertura: build/cobertura.xml
+  only:
+    - /.*tutorial[_-].*3$/
+  except:
+    - branches@csui-advprog-2019/advprog-tutorial-2021
