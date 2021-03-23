@@ -32,11 +32,17 @@ test:t2:
 
 test:t3:
   stage: test
-  script: gradle :tutorial-3:check
+  script:
+    - gradle :tutorial-3:check
+    - 'gradle test jacocoTestReport'
   only:
     - /.*tutorial[_-].*3$/
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
+  artifacts:
+    paths:
+      - build/jacoco/jacoco.xml
+
 
 coverage-jdk11:
   stage: visualize
