@@ -39,8 +39,6 @@ public class WeaponServiceImpl implements WeaponService {
     List<Weapon> allItems = new ArrayList<>();
 
 
-
-
     public Weapon findByAlias(String weaponName) {
         for (Weapon i : allItems) {
             if (i.getName().equals(weaponName)) {
