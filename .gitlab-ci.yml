@@ -35,13 +35,14 @@ test:t3:
   script:
     - gradle :tutorial-3:check
     - 'gradle test jacocoTestReport'
+  artifacts:
+    paths:
+      - build/jacoco/jacoco.xml
   only:
     - /.*tutorial[_-].*3$/
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
-  artifacts:
-    paths:
-      - build/jacoco/jacoco.xml
+  
 
 
 coverage-jdk11:
