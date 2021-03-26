@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Guild {
+
     private List<Adventurer> adventurers = new ArrayList<>();
     private Quest quest;
 
