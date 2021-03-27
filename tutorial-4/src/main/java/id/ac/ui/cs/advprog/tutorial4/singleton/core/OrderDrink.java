@@ -21,7 +21,10 @@ public class OrderDrink {
 
     //Todo : Complete Me with lazy instantiation approach
     public static OrderDrink getInstance() {
-        return null;
+        if (orderDrink == null) {
+            orderDrink = new OrderDrink();
+        }
+        return orderDrink;
     }
 
     public String getDrink() {

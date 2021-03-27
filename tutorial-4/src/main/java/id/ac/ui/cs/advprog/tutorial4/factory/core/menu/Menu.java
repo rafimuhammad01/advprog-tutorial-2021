@@ -38,4 +38,24 @@ public class Menu {
     public Flavor getFlavor() {
         return flavor;
     }
+
+    public void setNoodle(Noodle noodle) {
+        this.noodle = noodle;
+    }
+
+    public void setMeat(Meat meat) {
+        this.meat = meat;
+    }
+
+    public void setFlavor(Flavor flavor) {
+        this.flavor = flavor;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTopping(Topping topping) {
+        this.topping = topping;
+    }
 }
