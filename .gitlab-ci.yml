@@ -28,7 +28,7 @@ test:t2:
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
 
-
+# Tutorial 3 CI Jobs
 test:t3:
   stage: test
   script: gradle :tutorial-3:check
@@ -37,9 +37,13 @@ test:t3:
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
 
+# Tutorial 4 CI Jobs
 test:t4:
   stage: test
-  script: gradle :tutorial-4:check
+  script:
+    - gradle :tutorial-4:check
+    - gradle :tutorial-4:jacocoTestReport
+    - cat tutorial-4/build/reports/jacoco/test/html/index.html
   only:
     - /.*tutorial[_-].*4$/
   except:

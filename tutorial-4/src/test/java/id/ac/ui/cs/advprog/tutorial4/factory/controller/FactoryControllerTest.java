@@ -22,6 +22,8 @@ public class FactoryControllerTest {
     @MockBean
     private MenuService menuService;
 
+
+
     @Test
     public void whenCreateMenuUrlShouldCallMenuService() throws Exception{
         mockMvc.perform(get("/menus"))
@@ -31,6 +33,8 @@ public class FactoryControllerTest {
             .andExpect(view().name("factory/menus"));
         verify(menuService, times(1)).getMenus();
     }
+
+
 
     @Test
     public void whenNewMenuShouldCallNewMenu() throws Exception {
