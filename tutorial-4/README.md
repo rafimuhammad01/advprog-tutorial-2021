@@ -1,3 +1,5 @@
+[![coverage report](https://gitlab.com/rafimuhammad01/advprog-tutorial-2021/badges/tutorial-4/coverage.svg)](https://gitlab.com/rafimuhammad01/advprog-tutorial-2021/-/commits/tutorial-4)
+
 # Tutorial 4
 # I Can't Believe I Got Transported Into A Fantasy World as An Adventurer, but Works in A Restaurant!
 
