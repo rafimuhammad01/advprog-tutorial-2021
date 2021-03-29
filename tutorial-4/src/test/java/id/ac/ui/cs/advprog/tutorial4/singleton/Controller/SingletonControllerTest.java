@@ -1,6 +1,8 @@
 package id.ac.ui.cs.advprog.tutorial4.singleton.Controller;
 
 import id.ac.ui.cs.advprog.tutorial4.singleton.controller.SingletonController;
+import id.ac.ui.cs.advprog.tutorial4.singleton.core.OrderDrink;
+import id.ac.ui.cs.advprog.tutorial4.singleton.core.OrderFood;
 import id.ac.ui.cs.advprog.tutorial4.singleton.service.OrderService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -9,8 +11,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -25,19 +26,30 @@ public class SingletonControllerTest {
     @MockBean
     private OrderService orderService;
 
-    /*
+    @Mock
+    private OrderDrink orderDrink;
+
+    @Mock
+    private OrderFood orderFood;
+
     @Test
     public void whenWanPlusHomeCalledShouldBeCorrect() throws Exception {
+
+        when(orderDrink.getDrink()).thenReturn("dummy");
+        when(orderFood.getFood()).thenReturn("dummy");
+        when(orderService.getDrink()).thenReturn(orderDrink);
+        when(orderService.getFood()).thenReturn(orderFood);
+
         mockMvc.perform(get("/singleton/"))
             .andExpect(status().isOk())
             .andExpect(handler().methodName("wanPlusRestaurantHome"))
             .andExpect(model().attributeExists("orderDrink"))
-            .andExpect(view().name("orderFood"));
+            .andExpect(view().name("singleton/singleton"));
         verify(orderService, times(1)).getDrink();
         verify(orderService, times(1)).getFood();
     }
 
-     */
+
 
     @Test
     public void whenOrderFoodIsMadeShouldCallOrderFood() throws Exception {
