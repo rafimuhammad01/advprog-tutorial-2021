@@ -1,5 +1,7 @@
-#Entity
-###Mahasiswa
+## Entity
+
+````
+Mahasiswa
 
 NPM: String (Primary Key)
 Nama : String
@@ -9,26 +11,30 @@ noTelp: String
 mataKuliahID :String (ManyToOne)
 logs : []Log (OneToMany)
 
-###MataKuliah
+MataKuliah
 
 KodeMatkul: String (Primary Key)
 namaMatkul: String
 prodi: String
 Mahasiswa : []Mahasiswa (OneToMany)
 
-###Log
+Log
 
 idLog: integer(Primary Key, auto increment)
 start: datetime
 end: datetime
 Deskripsi: Text
+````
 
+## Response Class
+```
+LaporanPembayaran
 
-#Response
-###LaporanPembayaran
 month : String
 jamKerja : int
 pembayaran : int
+```
+
 
 
 ## API Call
