@@ -2,7 +2,11 @@ package csui.advpro2021.tais.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import csui.advpro2021.tais.model.Log;
+import csui.advpro2021.tais.model.Mahasiswa;
 import csui.advpro2021.tais.model.MataKuliah;
+import csui.advpro2021.tais.service.AsdosServiceImpl;
+import csui.advpro2021.tais.service.LogServiceImpl;
 import csui.advpro2021.tais.service.MataKuliahServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,13 +30,23 @@ class MataKuliahControllerTest {
     private MockMvc mvc;
 
     @MockBean
+    private LogServiceImpl logService;
+
+    @MockBean
+    private AsdosServiceImpl asdosService;
+
+    @MockBean
     private MataKuliahServiceImpl mataKuliahService;
 
     private MataKuliah matkul;
 
+    private Mahasiswa asdos;
+
     @BeforeEach
     public void setUp() {
         matkul = new MataKuliah("ADVPROG", "Advanced Programming", "Ilmu Komputer");
+        asdos = new Mahasiswa("1906192052", "Maung Meong", "maung@cs.ui.ac.id", "4",
+                "081317691718");
     }
 
     private String mapToJson(Object obj) throws JsonProcessingException {
@@ -97,6 +111,17 @@ class MataKuliahControllerTest {
         mataKuliahService.createMataKuliah(matkul);
         mvc.perform(delete("/mata-kuliah/" + matkul.getKodeMatkul()).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void testControllerCreateAsdos() throws Exception {
+        when(asdosService.addAsdos(matkul.getKodeMatkul(), asdos)).thenReturn(matkul);
+        mataKuliahService.createMataKuliah(matkul);
+
+        mvc.perform(post("/mata-kuliah/asdos/ADVPROG")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(mapToJson(asdos)))
+                .andExpect(jsonPath("$.kodeMatkul").value(matkul.getKodeMatkul()));
     }
 
 }

@@ -1,12 +1,12 @@
 package csui.advpro2021.tais.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "mata_kuliah")
@@ -23,9 +23,18 @@ public class MataKuliah {
     @Column(name = "prodi")
     private String prodi;
 
+    @OneToMany(mappedBy = "mataKuliah")
+    private List<Mahasiswa> asdos;
+
     public MataKuliah(String kodeMatkul, String nama, String prodi) {
         this.kodeMatkul = kodeMatkul;
         this.nama = nama;
         this.prodi = prodi;
+        this.asdos = new ArrayList<>();
+    }
+
+    public MataKuliah addMahasiswa(Mahasiswa mahasiswa) {
+        this.asdos.add(mahasiswa);
+        return this;
     }
 }

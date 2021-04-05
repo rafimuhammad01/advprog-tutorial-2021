@@ -1,6 +1,8 @@
 package csui.advpro2021.tais.controller;
 
+import csui.advpro2021.tais.model.Mahasiswa;
 import csui.advpro2021.tais.model.MataKuliah;
+import csui.advpro2021.tais.service.AsdosService;
 import csui.advpro2021.tais.service.MataKuliahService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 public class MataKuliahController {
     @Autowired
     private MataKuliahService mataKuliahService;
+
+    @Autowired
+    private AsdosService asdosService;
 
     @GetMapping(produces = {"application/json"})
     @ResponseBody
@@ -45,5 +50,12 @@ public class MataKuliahController {
     public ResponseEntity deleteMataKuliah(@PathVariable(value = "kodeMatkul") String kodeMatkul) {
         mataKuliahService.deleteMataKuliah(kodeMatkul);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+
+    @PostMapping(path = "asdos/{kodeMatkul}", produces = {"application/json"})
+    @ResponseBody
+    public ResponseEntity createAsdos(@PathVariable(value = "kodeMatkul") String kodeMatkul, @RequestBody Mahasiswa asdos) {
+        return ResponseEntity.ok(asdosService.addAsdos(kodeMatkul,asdos));
     }
 }

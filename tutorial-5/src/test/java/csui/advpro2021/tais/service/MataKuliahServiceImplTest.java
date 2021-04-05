@@ -10,7 +10,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class MataKuliahServiceImplTest {
@@ -28,6 +31,7 @@ public class MataKuliahServiceImplTest {
         matkul.setKodeMatkul("ADVPROG");
         matkul.setNama("Advanced Programming");
         matkul.setProdi("Ilmu Komputer");
+        matkul.setAsdos(new ArrayList<>());
     }
 
     @Test
@@ -65,8 +69,12 @@ public class MataKuliahServiceImplTest {
 
     @Test
     void testServiceDeleteMataKuliah() {
+
+        lenient().when(mataKuliahService.getMataKuliah(matkul.getKodeMatkul())).thenReturn(matkul);
         mataKuliahService.createMataKuliah(matkul);
         mataKuliahService.deleteMataKuliah(matkul.getKodeMatkul());
+
+        lenient().when(mataKuliahService.getMataKuliah(matkul.getKodeMatkul())).thenReturn(null);
         Assertions.assertEquals(null, mataKuliahService.getMataKuliah(matkul.getKodeMatkul()));
     }
 }

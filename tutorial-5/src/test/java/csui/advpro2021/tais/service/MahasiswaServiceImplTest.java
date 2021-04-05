@@ -56,6 +56,7 @@ public class MahasiswaServiceImplTest {
     @Test
     public void testServiceDeleteMahasiswa(){
         mahasiswaService.createMahasiswa(mahasiswa);
+        lenient().when(mahasiswaService.getMahasiswaByNPM("1906192052")).thenReturn(mahasiswa);
         mahasiswaService.deleteMahasiswaByNPM("1906192052");
         lenient().when(mahasiswaService.getMahasiswaByNPM("1906192052")).thenReturn(null);
         assertEquals(null, mahasiswaService.getMahasiswaByNPM(mahasiswa.getNpm()));
