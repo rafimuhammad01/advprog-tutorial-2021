@@ -1,8 +1,10 @@
 package csui.advpro2021.tais.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class MataKuliah {
     private String prodi;
 
     @OneToMany(mappedBy = "mataKuliah")
+    @ToString.Exclude
     private List<Mahasiswa> asdos;
 
     public MataKuliah(String kodeMatkul, String nama, String prodi) {

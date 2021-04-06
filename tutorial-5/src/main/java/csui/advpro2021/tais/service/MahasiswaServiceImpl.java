@@ -28,9 +28,13 @@ public class MahasiswaServiceImpl implements MahasiswaService {
 
     @Override
     public Mahasiswa updateMahasiswa(String npm, Mahasiswa mahasiswa) {
+        Mahasiswa existing = mahasiswaRepository.findByNpm(mahasiswa.getNpm());
+
         mahasiswa.setNpm(npm);
+        mahasiswa.setMataKuliah(existing.getMataKuliah());
+        mahasiswa.setLogs(existing.getLogs());
         mahasiswaRepository.save(mahasiswa);
-        return mahasiswa;
+        return mahasiswaRepository.findByNpm(mahasiswa.getNpm());
     }
 
     @Override

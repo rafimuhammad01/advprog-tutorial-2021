@@ -58,6 +58,8 @@ public class MataKuliahServiceImplTest {
 
     @Test
     void testServiceUpdateMataKuliah() {
+        lenient().when(mataKuliahRepository.findByKodeMatkul(matkul.getKodeMatkul())).thenReturn(matkul);
+
         mataKuliahService.createMataKuliah(matkul);
         String namaMatkul = "ADV125YIHA";
         matkul.setNama(namaMatkul);

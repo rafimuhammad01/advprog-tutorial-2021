@@ -30,7 +30,7 @@ public class MataKuliahServiceImpl implements MataKuliahService {
     public MataKuliah updateMataKuliah(String kodeMatkul, MataKuliah mataKuliah) {
         mataKuliah.setKodeMatkul(kodeMatkul);
         mataKuliahRepository.save(mataKuliah);
-        return mataKuliah;
+        return mataKuliahRepository.findByKodeMatkul(mataKuliah.getKodeMatkul());
     }
 
     @Override

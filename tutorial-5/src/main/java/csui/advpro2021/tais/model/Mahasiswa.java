@@ -1,9 +1,11 @@
 package csui.advpro2021.tais.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -33,15 +35,19 @@ public class Mahasiswa {
 
     @ManyToOne
     @JoinColumn(name="mata_kuliah_id")
-    @JsonIgnore
+    @ToString.Exclude
+    @JsonIgnoreProperties(value = {"asdos"})
     private MataKuliah mataKuliah;
 
     @OneToMany(mappedBy="asdos")
     private List<Log> logs;
 
+    /*
     @Column
     private String mataKuliahID;
 
+
+     */
     public Mahasiswa(String npm, String nama, String email, String ipk, String noTelp) {
         this.npm = npm;
         this.nama = nama;
@@ -49,6 +55,6 @@ public class Mahasiswa {
         this.ipk = ipk;
         this.noTelp = noTelp;
         this.logs = new ArrayList<>();
-        this.mataKuliahID = "";
+        //this.mataKuliahID = "";
     }
 }

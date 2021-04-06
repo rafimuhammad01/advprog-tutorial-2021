@@ -2,8 +2,10 @@ package csui.advpro2021.tais.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -32,6 +34,7 @@ public class Log {
     private String deskripsi;
 
     @ManyToOne
+    @ToString.Exclude
     @JoinColumn(name="asdos_id")
     @JsonIgnore
     private Mahasiswa asdos;

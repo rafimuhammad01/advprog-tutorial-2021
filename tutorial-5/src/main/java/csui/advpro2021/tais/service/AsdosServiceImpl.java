@@ -34,7 +34,7 @@ public class AsdosServiceImpl implements AsdosService{
         // Change foreign key data mahasiswa
         Mahasiswa newMahasiswa = mahasiswaService.getMahasiswaByNPM(asdos.getNpm());
         newMahasiswa.setMataKuliah(matkul);
-        newMahasiswa.setMataKuliahID(matkul.getKodeMatkul());
+        //newMahasiswa.setMataKuliahID(matkul.getKodeMatkul());
         mahasiswaService.updateMahasiswa(asdos.getNpm(), newMahasiswa);
 
         //Change foreign key data matkul

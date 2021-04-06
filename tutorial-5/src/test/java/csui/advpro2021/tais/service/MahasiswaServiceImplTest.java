@@ -69,6 +69,7 @@ public class MahasiswaServiceImplTest {
         //Change IPK from 4 to 3
         mahasiswa.setIpk("3");
 
+        lenient().when(mahasiswaRepository.findByNpm(mahasiswa.getNpm())).thenReturn(mahasiswa);
         lenient().when(mahasiswaService.updateMahasiswa(mahasiswa.getNpm(), mahasiswa)).thenReturn(mahasiswa);
         Mahasiswa resultMahasiswa = mahasiswaService.updateMahasiswa(mahasiswa.getNpm(), mahasiswa);
 

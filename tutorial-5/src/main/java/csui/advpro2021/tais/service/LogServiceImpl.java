@@ -52,7 +52,8 @@ public class LogServiceImpl implements LogService {
             newLog.setStart(log.getStart());
         }
         logRepository.save(newLog);
-        return newLog;
+
+        return logRepository.findByIdLog(newLog.getIdLog());
     }
 
     @Override
