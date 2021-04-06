@@ -1,3 +1,4 @@
+[![pipeline status](https://gitlab.com/rafimuhammad01/advprog-tutorial-2021/badges/tutorial-5/pipeline.svg)](https://gitlab.com/rafimuhammad01/advprog-tutorial-2021/-/commits/tutorial-5/)
 [![coverage report](https://gitlab.com/rafimuhammad01/advprog-tutorial-2021/badges/tutorial-5/coverage.svg)](https://gitlab.com/rafimuhammad01/advprog-tutorial-2021/-/commits/tutorial-5)
 
 
