@@ -1,4 +1,4 @@
-image: gradle:6.1.1-jdk8
+image: gradle:6.8.3-jdk11
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
@@ -8,6 +8,7 @@ before_script:
 
 stages:
   - test
+  - visualize
 
 # Tutorial 1 CI Jobs
 test:t1:
@@ -27,3 +28,16 @@ test:t2:
     - /.*tutorial[_-].*2$/
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
+
+# Tutorial 3 CI Jobs
+test:t3:
+  stage: test
+  script:
+    - gradle :tutorial-3:check
+    - gradle :tutorial-3:jacocoTestReport
+    - cat tutorial-3/build/reports/jacoco/test/html/index.html
+  only:
+    - /.*tutorial[_-].*3$/
+  except:
+    - branches@csui-advprog-2019/advprog-tutorial-2021
+  

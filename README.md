@@ -1,3 +1,5 @@
+[![coverage report](https://gitlab.com/rafimuhammad01/advprog-tutorial-2021/badges/tutorial-3/coverage.svg)](https://gitlab.com/rafimuhammad01/advprog-tutorial-2021/-/commits/tutorial-3)
+
 # Tutorial Problem Sets
 
 CSCM602023 Advanced Programming @ Faculty of Computer Science Universitas
@@ -8,6 +10,7 @@ Indonesia, Term 2 2020/2021
 1. [Tutorial 0: Basic Spring Boot and Git](tutorial0/readme.md)
 2. [Tutorial 1: Strategy and Observer Pattern](tutorial-1/README.md)
 3. [Tutorial 2: Command and Template Pattern](tutorial-2/README.md)
+4. [Tutorial 3: Adapter and Facade Pattern](tutorial-3/readme.md)
 
 ## **TL;DR**
 
